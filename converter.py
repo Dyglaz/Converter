@@ -49,8 +49,44 @@ class Converter:
 
     @staticmethod
     def convert_weight(value, source_unit, target_unit):
+        american_units = {
+            'oz': 0.02835,  # Унции
+            'lb': 0.453592  # Фунты
+        }
+
+        russian_units = {
+            'лот': 0.012797,  # Лоты
+            'золотник': 0.004266,  # Золотники
+            'доля': 0.0000444,  # Доли
+            'фунт': 0.409512  # Фунты
+        }
+
+        si_units = {
+            'g': 0.001,  # Граммы
+            'kg': 1,  # Килограммы
+            'tonne': 1000  # Тонны
+        }
 
         conversion_factor = 1
+
+        if source_unit in american_units and target_unit in american_units:
+            conversion_factor = american_units[source_unit] / american_units[target_unit]
+        elif source_unit in american_units and target_unit in russian_units:
+            conversion_factor = american_units[source_unit] / russian_units[target_unit]
+        elif source_unit in american_units and target_unit in si_units:
+            conversion_factor = american_units[source_unit] / si_units[target_unit]
+        elif source_unit in russian_units and target_unit in american_units:
+            conversion_factor = russian_units[source_unit] / american_units[target_unit]
+        elif source_unit in russian_units and target_unit in russian_units:
+            conversion_factor = russian_units[source_unit] / russian_units[target_unit]
+        elif source_unit in russian_units and target_unit in si_units:
+            conversion_factor = (russian_units[source_unit]) / si_units[target_unit]
+        elif source_unit in si_units and target_unit in american_units:
+            conversion_factor = si_units[source_unit] / american_units[target_unit]
+        elif source_unit in si_units and target_unit in russian_units:
+            conversion_factor = si_units[source_unit] / russian_units[target_unit]
+        elif source_unit in si_units and target_unit in si_units:
+            conversion_factor = (si_units[source_unit]) / si_units[target_unit]
 
         target_value = value * conversion_factor
 
