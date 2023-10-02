@@ -94,8 +94,17 @@ class Converter:
 
     @staticmethod
     def convert_currency(value, source_currency, target_currency):
+        rates = {
+            'USD': 1,  # Доллары
+            'RUB': 96.04,  # Рубли
+            'EUR': 0.94,  # Евро
+            'GBP': 1.23  # Фунты стерлингов
+        }
 
         conversion_factor = 1
+
+        if source_currency in rates and target_currency in rates:
+            conversion_factor = rates[target_currency] / rates[source_currency]
 
         target_value = value * conversion_factor
 
