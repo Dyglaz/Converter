@@ -42,7 +42,6 @@ class ConverterGUI:
 
         self.result_label = Label(self.window, text="Результат:")
         self.result_label.pack()
-
         self.result = Label(self.window, text="")
         self.result.pack()
 
