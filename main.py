@@ -64,6 +64,10 @@ class ConverterGUI:
             result = Converter.convert_length(value, source_unit, target_unit)
             self.result.configure(text=result)
 
+        elif option == 'Конвертация веса':
+            result = Converter.convert_weight(value, source_unit, target_unit)
+            self.result.configure(text=result)
+
         else:
             self.result.configure(text="Неверный выбор. Попробуйте еще раз.")
 

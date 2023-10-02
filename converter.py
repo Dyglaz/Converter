@@ -46,3 +46,12 @@ class Converter:
         target_value = value * conversion_factor
 
         return round(target_value, 3)
+
+    @staticmethod
+    def convert_weight(value, source_unit, target_unit):
+
+        conversion_factor = 1
+
+        target_value = value * conversion_factor
+
+        return round(target_value, 3)
