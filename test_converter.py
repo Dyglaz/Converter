@@ -16,3 +16,14 @@ class TestConverter(unittest.TestCase):
         self.assertAlmostEqual(Converter.convert_weight(2, 'лот', 'g'), 25.594, 3)
         self.assertAlmostEqual(Converter.convert_weight(5, 'золотник', 'g'), 21.33, 3)
         self.assertAlmostEqual(Converter.convert_weight(10, 'kg', 'lb'), 22.046, 3)
+
+    def test_convert_currency(self):
+        self.assertAlmostEqual(Converter.convert_currency(100, 'USD', 'RUB'), 9604, 3)
+        self.assertAlmostEqual(Converter.convert_currency(50, 'RUB', 'USD'), 0.521, 3)
+        self.assertAlmostEqual(Converter.convert_currency(75, 'EUR', 'GBP'), 98.138, 3)
+        self.assertAlmostEqual(Converter.convert_currency(200, 'GBP', 'USD'), 162.602, 3)
+        self.assertAlmostEqual(Converter.convert_currency(1500, 'RUB', 'EUR'), 14.681, 3)
+
+
+if __name__ == '__main__':
+    unittest.main()

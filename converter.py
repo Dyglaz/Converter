@@ -91,3 +91,12 @@ class Converter:
         target_value = value * conversion_factor
 
         return round(target_value, 3)
+
+    @staticmethod
+    def convert_currency(value, source_currency, target_currency):
+
+        conversion_factor = 1
+
+        target_value = value * conversion_factor
+
+        return round(target_value, 3)
